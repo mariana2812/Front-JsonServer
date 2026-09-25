@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfeh5mPFkRIdyU20VVeun4OOJe0bGKEXS5H8zv3L8go6QPE3TLLt7OA48&s=10");
+    background-repeat: no-repeat;  
+    background-size: cover;       
+    background-position: center;   
