@@ -1,4 +1,4 @@
-﻿async function getBlog() {
+async function getBlog() {
     const userId = localStorage.getItem("idUser")
     if (!userId || !localStorage.getItem("accessToken")) {
         location.replace("../Login/")
@@ -20,9 +20,11 @@
         if (!blog) {
             blog = await apiRequest(API.blog, {
                 method: "POST",
-                body: JSON.stringify({ user: { id: userId }, blog: [] })
+                body: JSON.stringify({ user: { id: userId }, fandom: [], blog: [] })
             })
         }
+
+        if (blog && blog.blog == null) blog.blog = []
 
         if (blog?.id == null || !Array.isArray(blog.blog)) {
             throw new Error("O blog retornado pela API precisa ter id e uma lista blog.")
