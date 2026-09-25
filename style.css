@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url("");
+    background-repeat: no-repeat;  
+    background-size: cover;       
+    background-position: center; 
+    background-attachment: fixed;
+    background-image: url();
+ }
+
+ form{
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    background-color: aliceblue;
+    gap: 24px;
+    padding: 30px;
+ }
+
+ form nav {
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+ }
+
+ 
