@@ -1,16 +1,51 @@
+/* =========================================
+   ESTRUTURA GERAL (CARD DO PERFIL)
+========================================= */
+body {
+    background-color: #f4f7f6; /* Fundo cinza bem claro para destacar o card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.perfil-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.perfil-container h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   GALERIA DE AVATARES
+========================================= */
 .avatar-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .avatar-option {
     cursor: pointer;
     border: 3px solid transparent; /* Borda invisível por padrão */
     border-radius: 10px; /* Borda arredondada */
-    transition: 0.2s ease-in-out;
+    background-color: #f9f9f9; /* Fundo para avatares com transparência */
+    transition: transform 0.2s ease-in-out, border-color 0.2s ease;
 }
 
 /* Efeito ao passar o mouse */
@@ -22,4 +57,74 @@
 .avatar-option.selecionado {
     border-color: #007BFF; /* Cor da borda selecionada (Azul) */
     background-color: #e6f2ff;
+}
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+#form-perfil {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-perfil label {
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+/* O primeiro label não precisa de margem no topo */
+#form-perfil label:first-of-type {
+    margin-top: 0;
+}
+
+#form-perfil input[type="text"],
+#form-perfil textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Permitir redimensionar a textarea apenas para baixo */
+#form-perfil textarea {
+    resize: vertical;
+}
+
+/* Efeito ao focar (clicar) no campo */
+#form-perfil input[type="text"]:focus,
+#form-perfil textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* =========================================
+   BOTÃO DE SALVAR
+========================================= */
+#form-perfil button {
+    margin-top: 25px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#form-perfil button:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+}
+
+#form-perfil button:active {
+    transform: scale(0.98); /* Efeito de afundar ao clicar */
 }
