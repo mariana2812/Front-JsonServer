@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="../global.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="perfil-container">
+    <h2>Criar / Editar Perfil</h2>
+    
+    <!-- Imagem do Avatar (Atualizada via JS) -->
+    <!-- <div class="avatar-wrapper">
+        <img id="avatar-preview" src="https://api.dicebear.com/9.x/bottts/svg?seed=novo" alt="Avatar do Usuário" width="150" height="150">
+    </div> -->
+      <div class="avatar-wrapper">
+        
+    </div>
+
+    <form id="form-perfil">
+        <label for="nome">Nome de Usuário (Gera o seu Avatar):</label>
+        <input type="text" id="nome" required placeholder="Digite seu nome">
+
+        <label for="biografia">Biografia:</label>
+        <textarea id="biografia" rows="4" placeholder="Fale um pouco sobre você"></textarea>
+
+        <button type="submit">Salvar Perfil</button>
+    </form>
+</div>
+    <script src="perfil.js"></script>
+</body>
+</html>
