@@ -1,8 +1,8 @@
-﻿const API = {
+const API = {
     baseUrl: "http://localhost:3001",
-    cadastro: "/Cadastro",
+    cadastro: "/register",
     login: "/login",
-    blog: "/Blog"
+    blog: "/blog"
 }
 
 async function apiRequest(path, options = {}) {
