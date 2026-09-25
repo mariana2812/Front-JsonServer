@@ -1,0 +1,25 @@
+.avatar-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.avatar-option {
+    cursor: pointer;
+    border: 3px solid transparent; /* Borda invisível por padrão */
+    border-radius: 10px; /* Borda arredondada */
+    transition: 0.2s ease-in-out;
+}
+
+/* Efeito ao passar o mouse */
+.avatar-option:hover {
+    transform: scale(1.1);
+}
+
+/* Classe que será adicionada via JS quando o usuário clicar */
+.avatar-option.selecionado {
+    border-color: #007BFF; /* Cor da borda selecionada (Azul) */
+    background-color: #e6f2ff;
+}
