@@ -70,12 +70,14 @@ formPerfil.addEventListener('submit', async (evento) => {
         biografia: document.getElementById('biografia').value,
         avatar: avatarSelecionado // Envia a URL do avatar que foi clicado
     };
-
+    const idUser = localStorage.getItem("idUser")
+    const token = localStorage.getItem("accessToken")
     try {
-        const resposta = await fetch('http://localhost:3001/users', {
-            method: 'POST', 
+        const resposta = await fetch(`http://localhost:3001/users/${idUser}`, {
+            method: 'PATCH', 
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(dadosPerfil)
         });
