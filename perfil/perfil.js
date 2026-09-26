@@ -88,6 +88,7 @@ formPerfil.addEventListener('submit', async (evento) => {
             formPerfil.reset();
             avatarSelecionado = '';
             document.querySelectorAll('.avatar-option').forEach(i => i.classList.remove('selecionado'));
+            location.href="/"
         }
     } catch (erro) {
         console.error('Erro ao salvar o perfil:', erro);
