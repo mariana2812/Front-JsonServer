@@ -1,530 +1,130 @@
-async function getBlog() {
-    const userId = localStorage.getItem("idUser")
-    if (!userId || !localStorage.getItem("accessToken")) {
-        location.replace("../Login/")
-        return
-    }
-    
-    const message = document.querySelector("#message")
-    const list = document.querySelector("#posts")
-    list.replaceChildren()
-    message.textContent = "Carregando..."
-
-    try {
-        const blogs = await apiRequest(`${API.blog}?user.id=${encodeURIComponent(userId)}`)
-        if (!Array.isArray(blogs)) {
-            throw new Error("A API deve retornar uma lista de blogs.")
-        }
-    /* =========================================================
-   FRONTD - FEED
+/* =========================================================
+   BARREIRA DE SEGURANÇA E DADOS GERAIS
 ========================================================= */
+const idUser = localStorage.getItem("idUser");
+const token = localStorage.getItem("accessToken");
 
+if (!idUser || !token) {
+    location.replace("../login/index.html");
+}
+
+const feed = document.getElementById("feed");
+const searchInput = document.getElementById("searchInput");
 
 /* =========================================================
-   CONFIGURAÇÃO DA API
+   CORES DO FEED E OBSERVER (Mantido)
 ========================================================= */
-
-/*
-    API de exemplo.
-
-    Depois podemos trocar pela API que vocês
-    realmente utilizarão no trabalho.
-*/
-
-const API_URL =
-    "https://rickandmortyapi.com/api/character";
-
-
-/* =========================================================
-   ELEMENTOS
-========================================================= */
-
-const feed =
-    document.getElementById("feed");
-
-const searchInput =
-    document.getElementById("searchInput");
-
-
-/* =========================================================
-   CORES DO FEED
-========================================================= */
-
-/*
-    Cada personagem terá uma cor.
-
-    Quando o usuário rolar até determinado
-    post, o fundo muda.
-*/
-
 const feedColors = [
-
-    {
-        background: "#43075f",
-        secondary: "#0b56b3"
-    },
-
-    {
-        background: "#00b34a",
-        secondary: "#0cc6ff"
-    },
-
-    {
-        background: "#ca8607",
-        secondary: "#f5150e"
-    },
-
-    {
-        background: "#bb0c81",
-        secondary: "#a90bf1"
-    },
-
-    {
-        background: "#044e17",
-        secondary: "#064952"
-    },
-
-    {
-        background: "#6cdf00",
-        secondary: "#bb8001"
-    }
-
+    { background: "#43075f", secondary: "#0b56b3" },
+    { background: "#00b34a", secondary: "#0cc6ff" },
+    { background: "#ca8607", secondary: "#f5150e" },
+    { background: "#bb0c81", secondary: "#a90bf1" },
+    { background: "#044e17", secondary: "#064952" },
+    { background: "#6cdf00", secondary: "#bb8001" }
 ];
 
+function iniciarObservador() {
+    const postsElements = document.querySelectorAll(".post");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const background = entry.target.dataset.background;
+                const secondary = entry.target.dataset.secondary;
+                document.body.style.setProperty("--background", background);
+                document.body.style.setProperty("--background-secondary", secondary);
+            }
+        });
+    }, { threshold: 0.45 });
 
-/* =========================================================
-   ALTERAR FUNDO
-========================================================= */
-
-function alterarFundo(index) {
-
-    const color =
-        feedColors[index % feedColors.length];
-
-
-    document.body.style.setProperty(
-        "--background",
-        color.background
-    );
-
-
-    document.body.style.setProperty(
-        "--background-secondary",
-        color.secondary
-    );
+    postsElements.forEach((post) => observer.observe(post));
 }
 
-
 /* =========================================================
-   CRIAR POST
+   CRIAR E CARREGAR POSTS (Integrado com json-server)
 ========================================================= */
+function criarPost(post, index) {
+    const postElement = document.createElement("article");
+    postElement.classList.add("post");
 
-function criarPost(personagem, index) {
+    const color = feedColors[index % feedColors.length];
+    postElement.dataset.background = color.background;
+    postElement.dataset.secondary = color.secondary;
 
-    const post =
-        document.createElement("article");
+    // Se o user_id cruzar corretamente, pegamos nome e avatar; senão, dados genéricos
+    const nomeAutor = post.user?.nome || post.user?.email || "Anônimo";
+    const avatarAutor = post.user?.avatar || "https://api.dicebear.com/9.x/bottts/svg?seed=novo";
 
-
-    post.classList.add("post");
-
-
-    /*
-        Cada post recebe uma cor própria.
-
-        Isso será usado pelo IntersectionObserver.
-    */
-
-    const color =
-        feedColors[index % feedColors.length];
-
-
-    post.dataset.background =
-        color.background;
-
-
-    post.dataset.secondary =
-        color.secondary;
-
-
-    post.innerHTML = `
-
+    postElement.innerHTML = `
         <div class="post-header">
-
-            <img
-                class="post-avatar"
-                src="${personagem.image}"
-                alt="${personagem.name}"
-            >
-
+            <img class="post-avatar" src="${avatarAutor}" alt="${nomeAutor}" width="50" style="border-radius:50%">
             <div class="post-user">
-
-                <strong>
-                    ${personagem.name}
-                </strong>
-
-                <span>
-                    Personagem • FrontD
-                </span>
-
+                <strong>${nomeAutor}</strong>
+                <span>Dev • FrontD</span>
             </div>
-
         </div>
-
 
         <div class="post-text">
-
-            Conheça <strong>${personagem.name}</strong>!
-
-            <br><br>
-
-            Status:
-            <strong>${personagem.status}</strong>
-
-            <br>
-
-            Espécie:
-            <strong>${personagem.species}</strong>
-
+            ${post.conteudo || post.body}
         </div>
-
-
-        <img
-            class="post-character"
-            src="${personagem.image}"
-            alt="Imagem de ${personagem.name}"
-        >
-
 
         <div class="post-actions">
-
-            <button>
-                ❤️ Curtir
-            </button>
-
-            <button>
-                💬 Comentar
-            </button>
-
-            <button>
-                🔄 Compartilhar
-            </button>
-
-            <button>
-                🔖 Salvar
-            </button>
-
+            <button>❤️ Curtir</button>
+            <button>💬 Comentar</button>
+            <button>🔄 Compartilhar</button>
         </div>
-
     `;
 
-
-    feed.appendChild(post);
-
-
-    return post;
+    feed.appendChild(postElement);
 }
 
-
-/* =========================================================
-   CARREGAR PERSONAGENS
-========================================================= */
-
-async function carregarPersonagens() {
-
+async function carregarFeed() {
     try {
+        // _expand=user cruza o post com os dados de quem o publicou
+        const resposta = await fetch("http://localhost:3001/posts?_expand=user", {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
 
-        const resposta =
-            await fetch(API_URL);
+        if (!resposta.ok) throw new Error("Erro ao acessar os posts.");
 
-
-        if (!resposta.ok) {
-
-            throw new Error(
-                "Erro ao acessar a API."
-            );
-
-        }
-
-
-        const dados =
-            await resposta.json();
-
-
+        const posts = await resposta.json();
         feed.innerHTML = "";
 
-
-        /*
-            Vamos pegar os primeiros personagens.
-        */
-
-        const personagens =
-            dados.results.slice(0, 10);
-
-
-        personagens.forEach(
-            (personagem, index) => {
-
-                criarPost(
-                    personagem,
-                    index
-                );
-
-            }
-        );
-
+        // Inverte para mostrar os mais novos no topo
+        posts.reverse().forEach((post, index) => {
+            criarPost(post, index);
+        });
 
         iniciarObservador();
-
-
     } catch (erro) {
-
         console.error(erro);
-
-
-        feed.innerHTML = `
-
-            <div class="loading">
-
-                ❌ Não foi possível carregar
-                os personagens.
-
-                <br><br>
-
-                Verifique a conexão com a API.
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =========================================================
-   MUDAR FUNDO DURANTE A NAVEGAÇÃO
-========================================================= */
-
-function iniciarObservador() {
-
-    const posts =
-        document.querySelectorAll(".post");
-
-
-    const observer =
-        new IntersectionObserver(
-
-            (entries) => {
-
-                entries.forEach(
-                    (entry) => {
-
-                        /*
-                            Quando o post estiver
-                            suficientemente visível...
-                        */
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            const background =
-                                entry.target.dataset.background;
-
-
-                            const secondary =
-                                entry.target.dataset.secondary;
-
-
-                            document.body.style.setProperty(
-                                "--background",
-                                background
-                            );
-
-
-                            document.body.style.setProperty(
-                                "--background-secondary",
-                                secondary
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-
-            {
-                threshold: 0.45
-            }
-
-        );
-
-
-    posts.forEach(
-        (post) => {
-
-            observer.observe(post);
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   PESQUISA
-========================================================= */
-
-searchInput.addEventListener(
-    "input",
-    () => {
-
-        const texto =
-            searchInput.value
-                .toLowerCase()
-                .trim();
-
-
-        const posts =
-            document.querySelectorAll(".post");
-
-
-        posts.forEach(
-            (post) => {
-
-                const conteudo =
-                    post.innerText.toLowerCase();
-
-
-                if (
-                    conteudo.includes(texto)
-                ) {
-
-                    post.style.display =
-                        "block";
-
-                } else {
-
-                    post.style.display =
-                        "none";
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   BOTÕES DE CURTIDA
-========================================================= */
-
-document.addEventListener(
-    "click",
-    (event) => {
-
-        const botao =
-            event.target.closest(
-                ".post-actions button"
-            );
-
-
-        if (!botao) {
-            return;
-        }
-
-
-        /*
-            Identifica o botão de Curtir.
-        */
-
-        if (
-            botao.innerText.includes(
-                "Curtir"
-            )
-        ) {
-
-            if (
-                botao.classList.contains(
-                    "liked"
-                )
-            ) {
-
-                botao.classList.remove(
-                    "liked"
-                );
-
-                botao.innerHTML =
-                    "❤️ Curtir";
-
-            } else {
-
-                botao.classList.add(
-                    "liked"
-                );
-
-                botao.innerHTML =
-                    "💜 Curtido";
-
-            }
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   INICIAR
-========================================================= */
-
-carregarPersonagens();
-        let blog = blogs.find(item => String(item.user?.id) === userId)
-        if (!blog) {
-            blog = await apiRequest(API.blog, {
-                method: "POST",
-                body: JSON.stringify({ user: { id: userId }, fandom: [], blog: [] })
-            })
-        }
-
-        if (blog && blog.blog == null) blog.blog = []
-
-        if (blog?.id == null || !Array.isArray(blog.blog)) {
-            throw new Error("O blog retornado pela API precisa ter id e uma lista blog.")
-        }
-
-        localStorage.setItem("blogID", blog.id)
-        for (const post of blog.blog) {
-            const item = document.createElement("li")
-
-
-            if (typeof post === "string") {
-                item.textContent = post
-            } 
-            
-            else {
-                const title = document.createElement("h2")
-                title.textContent = post?.title || post?.titulo || "Sem título"
-                const content = document.createElement("p")
-                content.textContent = post?.body || post?.content || post?.conteudo || ""
-                item.append(title, content)
-            }
-            list.appendChild(item)
-        }
-        message.textContent = blog.blog.length ? "" : "Você ainda não tem publicações."
-    } catch (error) {
-        message.textContent = error.message
+        feed.innerHTML = `<div class="loading">❌ Não foi possível carregar os posts.</div>`;
     }
 }
 
-document.querySelector("#logout").addEventListener("click", () => {
-    for (const key of ["accessToken", "idUser", "blogID"]) {
-        localStorage.removeItem(key)
-    }
-    location.href = "../Login/"
-})
+/* =========================================================
+   PESQUISA NO FEED E CURTIDAS (Mantido)
+========================================================= */
+searchInput.addEventListener("input", () => {
+    const texto = searchInput.value.toLowerCase().trim();
+    const postsElements = document.querySelectorAll(".post");
 
-getBlog()
+    postsElements.forEach((post) => {
+        const conteudo = post.innerText.toLowerCase();
+        post.style.display = conteudo.includes(texto) ? "block" : "none";
+    });
+});
+
+document.addEventListener("click", (event) => {
+    const botao = event.target.closest(".post-actions button");
+    if (!botao) return;
+
+    if (botao.innerText.includes("Curtir")) {
+        botao.classList.toggle("liked");
+        botao.innerHTML = botao.classList.contains("liked") ? "💜 Curtido" : "❤️ Curtir";
+    }
+});
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+carregarFeed();
