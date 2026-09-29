@@ -1,0 +1,236 @@
+body {
+    display: flex;
+    height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.40),
+            rgba(0, 0, 0, 0.72)
+        ),
+        url("../img/fundo-rpg.jpg");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* ========================= */
+/* FORMULÁRIO */
+/* ========================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    width: 460px;
+
+    padding: 45px;
+
+    background-color: rgba(8, 8, 8, 0.82);
+
+    border: 1px solid #454545;
+    border-left: 3px solid var(--dourado);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.75);
+
+    animation: aparecer 0.8s ease;
+}
+
+
+/* ========================= */
+/* TÍTULO */
+/* ========================= */
+
+form h1 {
+    text-align: center;
+
+    font-size: 34px;
+
+    color: var(--branco);
+
+    margin-bottom: 5px;
+}
+
+
+/* TEXTO ABAIXO DO TÍTULO */
+
+.descricao {
+    text-align: center;
+
+    color: #aaaaaa;
+
+    font-size: 14px;
+
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+
+/* ========================= */
+/* CAMPOS */
+/* ========================= */
+
+form div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+form label {
+    color: #dddddd;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+
+    padding: 15px;
+
+    background-color: rgba(22, 22, 22, 0.90);
+
+    border: 1px solid #444444;
+    border-radius: 7px;
+
+    color: var(--branco);
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+form input::placeholder {
+    color: #777777;
+}
+
+form input:hover {
+    border-color: #666666;
+}
+
+form input:focus {
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 10px rgba(194, 139, 54, 0.20);
+}
+
+
+/* ========================= */
+/* BOTÃO */
+/* ========================= */
+
+form button {
+    padding: 15px;
+
+    margin-top: 5px;
+
+    background-color: var(--dourado);
+
+    border: 2px solid var(--dourado);
+    border-radius: 7px;
+
+    color: var(--preto);
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+form button:hover {
+    background-color: var(--dourado-claro);
+
+    border-color: var(--dourado-claro);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(194, 139, 54, 0.30);
+}
+
+form button:active {
+    transform: scale(0.98);
+}
+
+
+/* ========================= */
+/* LINK */
+/* ========================= */
+
+form a {
+    text-align: center;
+
+    color: #aaaaaa;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    transition: 0.25s;
+}
+
+form a:hover {
+    color: var(--dourado-claro);
+}
+
+
+/* ========================= */
+/* MENSAGEM */
+/* ========================= */
+
+#message {
+    text-align: center;
+
+    color: var(--dourado-claro);
+
+    font-size: 14px;
+}
+
+
+/* ========================= */
+/* ANIMAÇÃO */
+/* ========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================= */
+/* CELULAR */
+/* ========================= */
+
+@media (max-width: 500px) {
+
+    form {
+        width: 90%;
+
+        padding: 30px 25px;
+    }
+
+    form h1 {
+        font-size: 28px;
+    }
+}

@@ -1,3 +1,14 @@
+const Cadastro = document.getElementById("Cadastro")
+const Login = document.getElementById("Login")
+
+Cadastro.addEventListener("click", () => {
+    window.location.href = "./Cadastro/"
+})
+
+Login.addEventListener("click", () => {
+    window.location.href = "./Login/"
+})
+
 const API = {
     baseUrl: "http://localhost:3001",
     cadastro: "/register",

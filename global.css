@@ -1,5 +1,25 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --dourado: #c28b36;
+    --dourado-claro: #e0ad55;
+
+    --preto: #0b0b0d;
+    --preto-primary: #161616;
+
+    --cinza: #292929;
+    --cinza-claro: #aaaaaa;
+
+    --branco: #ffffff;
+    --branco-primary: #f0f0f0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--preto);
+    color: var(--branco);
 }
