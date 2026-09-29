@@ -13,11 +13,7 @@ body::before {
     width: 100%;
     height: 100%;
     background-image:
-        linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.90),
-            rgba(0, 0, 0, 0.20)
-        ),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
         url("https://images.openai.com/static-rsc-4/5tQ3n1GXg0Q5Sn_2HqpEMCWWUPov_xm3WOKy8ju4RFtPgIOqP4ZjvlL1lV_MNdkrLGCsYTMqd2rfCVF8mAgbmSyhcIdI7zzvkvkA5knAfEHF3XPHUXYO5RnY5RjetPj9AZGzIoLtDPT3p4vCTTtrlC97Eur3G1dtKPlQCVN3Wi8KbAPUtH2aFwTR7BlCO38U?purpose=fullsize");
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,11 +27,7 @@ body::after {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        transparent 55%,
-        rgba(0, 0, 0, 0.55)
-    );
-
+    background: linear-gradient(transparent 55%, rgba(0, 0, 0, 0.55));
     z-index: 1;
 }
 
@@ -45,11 +37,10 @@ form {
     width: 650px;
     margin-left: 7%;
     padding: 35px;
-    background-color: rgba(5, 5, 5, 0.50);
+    background-color: rgba(5, 5, 5, 0.5);
     border-left: 3px solid var(--dourado);
     border-radius: 4px;
-    box-shadow:
-        -15px 0 40px rgba(0, 0, 0, 0.35);
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.35);
     position: relative;
     z-index: 2;
     animation: aparecer 1s ease;
@@ -76,8 +67,7 @@ form h1 span {
     display: block;
     color: var(--dourado-claro);
     margin-top: 8px;
-    text-shadow:
-        0 0 20px rgba(194, 139, 54, 0.20);
+    text-shadow: 0 0 20px rgba(194, 139, 54, 0.2);
 }
 
 .descricao {
@@ -115,8 +105,7 @@ nav button {
     background-color: var(--dourado-claro);
     border-color: var(--dourado-claro);
     transform: translateY(-3px);
-    box-shadow:
-        0 8px 20px rgba(194, 139, 54, 0.30);
+    box-shadow: 0 8px 20px rgba(194, 139, 54, 0.3);
 }
 
 #Login {
@@ -129,8 +118,7 @@ nav button {
     background-color: var(--dourado);
     color: var(--preto);
     transform: translateY(-3px);
-    box-shadow:
-        0 8px 20px rgba(194, 139, 54, 0.30);
+    box-shadow: 0 8px 20px rgba(194, 139, 54, 0.3);
 }
 
 nav button:active {
@@ -163,7 +151,6 @@ nav button:active {
 }
 
 @keyframes aparecer {
-
     from {
         opacity: 0;
         transform: translateX(-40px);
@@ -176,7 +163,6 @@ nav button:active {
 }
 
 @keyframes subir {
-
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -189,7 +175,6 @@ nav button:active {
 }
 
 @keyframes fundoMovimento {
-
     from {
         transform: scale(1);
     }
@@ -200,7 +185,6 @@ nav button:active {
 }
 
 @media (max-width: 800px) {
-
     body {
         justify-content: center;
     }
@@ -230,7 +214,6 @@ nav button:active {
 }
 
 @media (max-width: 500px) {
-
     body {
         overflow: auto;
     }

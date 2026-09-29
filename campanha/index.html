@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Campanha - FrontD</title>
+
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../comunidade.css">
+
+    <link rel="stylesheet" href="../navegacao.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <a class="logo" href="../Blog/index.html">
+            Front<span>D</span>
+        </a>
+
+        <nav class="menu">
+
+            <a href="../Blog/index.html">Início</a>
+
+            <a href="../campanhas/index.html">
+                Campanhas
+            </a>
+
+            <a href="../perfil/index.html">
+                Meu perfil
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="pagina">
+
+        <section class="card">
+
+            <img id="capaCampanha" class="capa-campanha" alt="Capa da campanha" hidden>
+            <small
+                style="color:var(--dourado)"
+                id="sistema"
+            ></small>
+
+            <h1
+                id="nome"
+                style="margin:8px 0"
+            >
+                Carregando...
+            </h1>
+
+            <p
+                id="descricao"
+                style="
+                    color:#aaa;
+                    line-height:1.6
+                "
+            ></p>
+
+            <p
+                id="mestre"
+                style="margin-top:15px"
+            ></p>
+
+            <div
+                id="acao"
+                style="margin-top:20px"
+            ></div>
+
+        </section>
+
+
+        <section id="editarCampanha" class="card" hidden>
+            <h2>Editar campanha</h2>
+            <form id="formEditarCampanha" class="formulario">
+                <div class="campo"><label for="editarNome">Nome</label><input id="editarNome" required maxlength="100"></div>
+                <div class="campo"><label for="editarSistema">Sistema</label><input id="editarSistema" required maxlength="100"></div>
+                <div class="campo"><label for="editarDescricao">Descrição</label><textarea id="editarDescricao" required maxlength="5000"></textarea></div>
+                <div class="campo"><label for="editarLimite">Máximo de jogadores</label><input id="editarLimite" type="number" min="2" max="20" required></div>
+                <div class="campo"><label for="editarCapa">Nova capa</label><input id="editarCapa" type="file" accept="image/jpeg,image/png,image/webp"><img id="previaCapa" class="previa-capa" alt="Prévia da capa" hidden></div>
+                <label class="opcao-checkbox"><input id="removerCapa" type="checkbox"> Remover capa atual</label>
+                <button type="submit" class="botao">Salvar alterações</button>
+                <button type="button" class="botao-secundario" id="cancelarCampanha">Cancelar</button>
+            </form>
+        </section>
+        <section class="card">
+
+            <h2>Participantes</h2>
+
+            <div
+                id="participantes"
+                class="lista"
+            ></div>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>Mural da campanha</h2>
+
+            <div class="comentar">
+
+                <input
+                    id="mensagem"
+                    placeholder="Escreva algo para a campanha..."
+                >
+
+                <button
+                    id="enviar"
+                    class="botao"
+                >
+                    Enviar
+                </button>
+
+            </div>
+
+            <div
+                id="mural"
+                class="lista"
+                style="margin-top:15px"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../script.js"></script>
+    <script src="../notificacoes.js"></script>
+    <script src="../navegacao.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,367 +1,99 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FrontD - Feed</title>
-    <link rel="stylesheet" href="style.css">
+    <title>FrontD - A taverna</title>
     <link rel="stylesheet" href="../global.css">
-    
+    <link rel="stylesheet" href="feed.css">
+    <link rel="stylesheet" href="taverna.css">
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
 </head>
-
 <body>
-
-    <!-- =========================
-         CABECALHO
-    ========================== -->
+    <nav class="guild-rail" aria-label="Atalhos">
+        <a class="guild-home" href="./index.html" title="FrontD"><i data-lucide="dices"></i><span class="sr-only">FrontD</span></a>
+        <span class="rail-divider"></span>
+        <a class="selected" href="./index.html" title="A taverna"><i data-lucide="hash"></i><span class="sr-only">A taverna</span></a>
+        <a href="../campanhas/index.html" title="Campanhas"><i data-lucide="swords"></i><span class="sr-only">Campanhas</span></a>
+        <a href="../comunidades/index.html" title="Comunidades"><i data-lucide="castle"></i><span class="sr-only">Comunidades</span></a>
+        <a class="rail-add" href="../campanhas/index.html" title="Criar campanha"><i data-lucide="plus"></i><span class="sr-only">Criar campanha</span></a>
+        <a class="rail-bottom" href="../configuracoes/index.html" title="Configurações"><i data-lucide="settings"></i><span class="sr-only">Configurações</span></a>
+    </nav>
 
     <header class="topbar">
-
-        <div class="logo-area">
-
-            <div class="logo-icon">
-                F
-            </div>
-
-            <div class="logo-text">
-                <strong>Front<span>D</span></strong>
-                <small>Código, ideias e diálogo</small>
-            </div>
-
-        </div>
-
-
-        <div class="search-box">
-
-            <span>🔎</span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Pesquisar no FrontD..."
-            >
-
-        </div>
-
-
+        <a href="./index.html" class="brand"><span class="brand-emblem"><i data-lucide="dices"></i></span><strong>Front<span>D</span></strong><span class="brand-caption">A sua próxima aventura</span></a>
+        <div class="channel-title"><i data-lucide="hash"></i><strong>taverna-geral</strong><span>O ponto de encontro dos aventureiros</span></div>
         <div class="top-actions">
-
-            <button title="Notificações">
-                🔔
-            </button>
-
-            <button title="Mensagens">
-                💬
-            </button>
-
-            <button class="user-mini" title="Meu perfil">
-                👤
-            </button>
-
+            <button id="atualizarFeed" type="button" title="Atualizar feed" aria-label="Atualizar feed"><i data-lucide="refresh-cw"></i></button>
+            <button id="abrirMensagens" type="button" title="Mensagens" aria-label="Mensagens"><i data-lucide="message-circle"></i></button>
+            <button type="button" title="Notificações" aria-label="Notificações"><i data-lucide="bell"></i></button>
+            <button class="user-button" title="Meu perfil" aria-label="Meu perfil"><img id="topAvatar" alt=""></button>
         </div>
-
     </header>
 
-
-    <!-- =========================
-         CONTAINER PRINCIPAL
-    ========================== -->
-
     <main class="layout">
-
-
-        <!-- =========================
-             MENU ESQUERDO
-        ========================== -->
-
-<aside class="left-column">
-
-    <!-- QUADRO DO PERFIL -->
-    <section class="profile-card">
-
-        <div class="profile-cover"></div>
-
-        <div class="profile-photo-box">
-            <div class="profile-avatar">
-                👨‍💻
-            </div>
-        </div>
-
-        <div class="profile-info">
-
-            <h2>Meu Perfil</h2>
-
-            <p>Desenvolvedor Frontend</p>
-
-        </div>
-
-        <div class="profile-stats">
-
-            <div>
-                <strong>128</strong>
-                <span>Amigos</span>
-            </div>
-
-            <div>
-                <strong>24</strong>
-                <span>Posts</span>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- QUADRO DO MENU -->
-    <nav class="menu">
-
-        <a class="active" href="#">
-            <span class="menu-icon">🏠</span>
-            <span>Início</span>
-        </a>
-
-        <a href="#">
-            <span class="menu-icon">💬</span>
-            <span>Recados</span>
-        </a>
-
-        <a href="#">
-            <span class="menu-icon">👥</span>
-            <span>Amigos</span>
-        </a>
-
-        <a href="#">
-            <span class="menu-icon">⭐</span>
-            <span>Favoritos</span>
-        </a>
-
-        <a href="#">
-            <span class="menu-icon">👤</span>
-            <span>Meu perfil</span>
-        </a>
-
-        <a href="#">
-            <span class="menu-icon">⚙️</span>
-            <span>Configurações</span>
-        </a>
-
-    </nav>
-
-
-    <!-- QUADRO FRONTD -->
-    <section class="orkut-box">
-
-        <h3>FrontD</h3>
-
-        <p>
-            Código, ideias e diálogo.
-        </p>
-
-        <div class="online">
-
-            <span></span>
-
-            Comunidade online
-
-        </div>
-
-    </section>
-
-</aside>
-
-        <!-- =========================
-             FEED
-        ========================== -->
-
-        <section class="feed-column">
-
-            <div class="feed-title">
-
-                <div>
-                    <h1>Feed</h1>
-
-                    <p>
-                        Veja o que está acontecendo na comunidade.
-                    </p>
-                </div>
-
-                <button class="new-post">
-                    ＋ Publicar
-                </button>
-
-            </div>
-
-
-            <!-- Caixa para publicação -->
-
-            <section class="create-post">
-
-                <div class="create-avatar">
-                    👨‍💻
-                </div>
-
-                <div class="create-content">
-
-                    <input
-                        type="text"
-                        placeholder="O que você está pensando?"
-                    >
-
-                    <div class="create-actions">
-
-                        <button>
-                            🖼️ Foto
-                        </button>
-
-                        <button>
-                            😊 Emoji
-                        </button>
-
-                        <button>
-                            🎨 Figurinha
-                        </button>
-
-                        <button class="publish">
-                            Publicar
-                        </button>
-
-                    </div>
-
-                </div>
-
+        <aside class="left-sidebar">
+            <a class="sidebar-inbox" href="../mensagens/index.html"><i data-lucide="messages-square"></i><span>Suas conversas<small>Mensagens diretas</small></span><i data-lucide="chevron-right"></i></a>
+            <div class="sidebar-heading">SEU PONTO DE ENCONTRO</div>
+            <nav class="main-menu" aria-label="Navegação principal">
+                <a href="./index.html" class="active" aria-current="page"><i data-lucide="hash"></i> taverna-geral</a>
+                <a href="../descobrir/index.html"><i data-lucide="compass"></i> Descobrir jogadores</a>
+                <a href="../campanhas/index.html"><i data-lucide="swords"></i> Campanhas</a>
+                <a href="../mensagens/index.html"><i data-lucide="message-circle"></i> Mensagens</a>
+                <a href="../comunidades/index.html"><i data-lucide="castle"></i> Comunidades</a>
+            </nav>
+            <div class="sidebar-heading">A PRÓXIMA SESSÃO</div>
+            <button id="createCampaignButton" class="create-campaign"><i data-lucide="plus"></i> Criar campanha</button>
+            <section class="profile-card">
+                <div class="profile-summary"><img id="profileAvatar" class="profile-avatar" alt="Seu avatar"><div class="profile-info"><h2 id="profileName">Carregando...</h2><p id="profileDescription"></p></div><a href="../perfil/index.html" title="Editar perfil"><i data-lucide="settings"></i></a></div>
+                <div id="profileSystems" class="profile-systems"></div>
+                <div class="profile-stats"><div><strong id="campaignCount">0</strong><span>Campanhas</span></div><div><strong id="friendCount">0</strong><span>Amigos</span></div></div>
             </section>
-
-
-            <!--
-                Os posts da API serão inseridos aqui
-            -->
-
-            <div id="feed">
-
-                <!-- Posts carregados pelo JavaScript -->
-
-                <div class="loading">
-                    Carregando personagens...
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             COLUNA DIREITA
-        ========================== -->
-
-        <aside class="right-column">
-
-
-            <section class="side-card">
-
-                <h3>🔥 Em alta</h3>
-
-                <a href="#">#Frontend</a>
-                <a href="#">#JavaScript</a>
-                <a href="#">#HTML</a>
-                <a href="#">#CSS</a>
-                <a href="#">#API</a>
-
-            </section>
-
-
-            <section class="side-card">
-
-                <h3>👥 Comunidades</h3>
-
-                <div class="community">
-
-                    <div>💻</div>
-
-                    <div>
-                        <strong>Frontend Brasil</strong>
-                        <small>2.341 membros</small>
-                    </div>
-
-                </div>
-
-
-                <div class="community">
-
-                    <div>🎮</div>
-
-                    <div>
-                        <strong>Gamers</strong>
-                        <small>1.827 membros</small>
-                    </div>
-
-                </div>
-
-
-                <div class="community">
-
-                    <div>🎨</div>
-
-                    <div>
-                        <strong>Design & UI</strong>
-                        <small>984 membros</small>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <section class="side-card birthday">
-
-                <h3>🎂 Aniversários</h3>
-
-                <p>
-                    🎉 3 amigos fazem aniversário hoje!
-                </p>
-
-            </section>
-
         </aside>
 
+        <section class="feed-column">
+            <header class="feed-header">
+                <div><span class="section-label">SEU PONTO DE ENCONTRO</span><h1>A taverna</h1><p>Boas histórias. Novas companhias. A próxima sessão.</p></div>
+                <a class="header-discover" href="../descobrir/index.html"><i data-lucide="user-plus"></i><span>Encontrar jogadores</span></a>
+            </header>
+            <div class="feed-toolbar">
+                <label class="search-box"><i data-lucide="search"></i><input type="search" id="searchInput" placeholder="Buscar no mural" aria-label="Buscar publicações"></label>
+            </div>
+            <section class="create-post" aria-label="Nova publicação">
+                <img id="createPostAvatar" class="create-avatar" alt="Seu avatar">
+                <div class="create-content">
+                    <textarea id="postContent" placeholder="Que história você traz para a taverna?" aria-label="Texto da publicação" maxlength="5000"></textarea>
+                    <div class="create-footer">
+                        <div class="create-tools">
+                            <button type="button" title="Adicionar imagem"><i data-lucide="image"></i><span>Imagem</span></button>
+                            <button type="button" title="Escolher sistema"><i data-lucide="dices"></i><span>Sistema</span></button>
+                        </div>
+                        <button id="publishButton" class="publish-button" type="button">Publicar</button>
+                    </div>
+                </div>
+            </section>
+            <div class="mural-label"><span>AO REDOR DA FOGUEIRA</span><span>Publicações recentes</span></div>
+            <div id="feed"><div class="loading">Carregando publicações...</div></div>
+        </section>
+
+        <aside class="right-sidebar">
+            <div class="right-heading"><span>EXPLORAR</span><h2>Além da taverna</h2></div>
+            <section class="side-card"><div class="side-title"><h3><i data-lucide="swords"></i> Campanhas abertas</h3><a href="../campanhas/index.html" title="Ver todas as campanhas"><i data-lucide="arrow-right"></i></a></div><div id="openCampaigns"><div class="empty-small">Nenhuma campanha disponível.</div></div></section>
+            <section class="community-panel"><div class="community-total"><i data-lucide="users"></i><div><strong id="onlineCount">0</strong><small> aventureiros na comunidade</small></div><a href="../descobrir/index.html" title="Ver jogadores"><i data-lucide="arrow-up-right"></i></a></div><div id="communityPlayers" class="community-players"></div></section>
+            <a class="explore-community" href="../comunidades/index.html"><i data-lucide="users-round"></i><span>Encontre seu grupo<small>Explorar comunidades</small></span><i data-lucide="arrow-up-right"></i></a>
+            <p class="sidebar-credit">FrontD · Comunidade RPG</p>
+        </aside>
     </main>
 
-
-    <!-- =========================
-         NAVEGAÇÃO MOBILE
-    ========================== -->
-
-    <nav class="mobile-nav">
-
-        <a href="#">
-            🏠
-            <span>Início</span>
-        </a>
-
-        <a href="#">
-            🔎
-            <span>Buscar</span>
-        </a>
-
-        <a href="#" class="mobile-plus">
-            ＋
-        </a>
-
-        <a href="#">
-            💬
-            <span>Recados</span>
-        </a>
-
-        <a href="#">
-            👤
-            <span>Perfil</span>
-        </a>
-
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+        <a href="./index.html" aria-current="page"><i data-lucide="hash"></i><small>Taverna</small></a>
+        <a href="../descobrir/index.html"><i data-lucide="compass"></i><small>Explorar</small></a>
+        <button title="Nova publicação" aria-label="Nova publicação"><i data-lucide="plus"></i></button>
+        <a href="../campanhas/index.html"><i data-lucide="swords"></i><small>Mesas</small></a>
+        <a href="../perfil/index.html"><i data-lucide="user-round"></i><small>Perfil</small></a>
     </nav>
-
-
-    <script src="script.js"></script>
-
+    <script src="../script.js"></script>
+    <script src="../notificacoes.js"></script>
+    <script src="feed.js"></script>
 </body>
-
 </html>

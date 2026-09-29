@@ -1,0 +1,818 @@
+.app-comunidade {
+    background:
+        linear-gradient(#090909e8, #090909f5),
+        url("Blog/midia/taverna-rpg.png") center top / cover fixed;
+    color: #ecebef;
+    padding: 0 0 0 248px;
+    min-height: 100vh;
+}
+
+.app-comunidade .previa-capa {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.app-comunidade .capa-lista {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 16px;
+}
+
+.app-comunidade .capa-campanha {
+    width: 100%;
+    max-height: 320px;
+    aspect-ratio: 3 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+.app-comunidade .opcao-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.app-comunidade .opcao-checkbox input {
+    width: auto;
+    accent-color: var(--gold);
+}
+
+.app-comunidade .app-lateral {
+    background:
+        linear-gradient(#090909 42%, #090909b0 72%, #090909ed),
+        url("Blog/midia/taverna-rpg.png") left bottom / auto 65% no-repeat;
+}
+
+.app-comunidade .topo {
+    background: #090909f5;
+    border-color: #302a20;
+}
+
+.app-comunidade .grid .card,
+.app-comunidade .item-lista {
+    background: #111113ed;
+    border-color: #353027;
+}
+
+.app-comunidade .titulo-pagina {
+    padding-top: 20px;
+}
+
+.modal-frontd textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    background: #111113;
+    color: #eee;
+    border: 1px solid #54442d;
+    border-radius: 5px;
+    resize: vertical;
+    font: inherit;
+}
+
+.app-comunidade * {
+    letter-spacing: 0;
+}
+
+.app-comunidade svg {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 auto;
+    stroke-width: 1.7;
+}
+
+.app-lateral {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 248px;
+    background: #0b0b0d;
+    border-right: 1px solid #29292d;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 60;
+}
+
+.app-marca {
+    height: 66px;
+    min-height: 66px;
+    padding: 11px 22px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    border-bottom: 1px solid #29292d;
+}
+
+.app-marca > span {
+    color: var(--gold-light);
+}
+
+.app-marca small {
+    display: block;
+    color: #95959d;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.app-capa {
+    height: 135px;
+    min-height: 135px;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-capa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app-capa span {
+    position: absolute;
+    bottom: 0;
+    inset-inline: 0;
+    padding: 7px 16px;
+    background: #101012db;
+    font-size: 11px;
+}
+
+.app-grupo {
+    margin: 22px 20px 10px;
+    font-size: 10px;
+    color: #94949b;
+}
+
+.app-conversas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-bottom: 1px solid #29272a;
+    font-size: 13px;
+    color: #d8d5d0;
+}
+
+.app-conversas > svg:first-child {
+    color: var(--gold-light);
+}
+
+.app-conversas > svg:last-child {
+    width: 14px;
+    height: 14px;
+    margin-left: auto;
+    color: #88858f;
+}
+
+.app-conversas small {
+    display: block;
+    color: #89868e;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.app-conversas:hover {
+    background: #1b191c;
+}
+
+.app-lateral nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 3px;
+}
+
+.app-lateral nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    font-size: 13px;
+    color: #aaaab3;
+    border-radius: 5px;
+}
+
+.app-lateral nav a:hover {
+    background: #1c1c20;
+    color: #fff;
+}
+
+.app-lateral nav a[aria-current] {
+    background: #29231b;
+    color: var(--gold-light);
+    box-shadow: inset 3px 0 var(--gold);
+}
+
+.app-criar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin: 25px 20px;
+    color: var(--gold-light);
+    border: 1px solid #624b2d;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.app-voltar {
+    margin-top: auto;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #a4a4ad;
+    font-size: 12px;
+    border-top: 1px solid #29292d;
+}
+
+.app-comunidade .topo {
+    height: 66px;
+    min-height: 66px;
+    padding: 0 30px;
+    display: flex;
+    gap: 12px;
+    background: #121214;
+    border-bottom: 1px solid #29292d;
+    backdrop-filter: none;
+    z-index: 40;
+}
+
+.app-comunidade .topo strong {
+    font-size: 14px;
+    flex: 1;
+}
+
+.app-comunidade .topo > a {
+    font-size: 12px;
+    color: var(--gold-light);
+}
+
+.app-menu-botao {
+    display: none;
+}
+
+.app-notificacoes {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #35353b;
+    border-radius: 4px;
+    background: #1a1a1e;
+    color: var(--gold-light);
+}
+
+.app-notificacoes:hover {
+    background: #29231b;
+    border-color: #645032;
+}
+
+.app-menu-fundo {
+    position: fixed;
+    inset: 66px 0 0;
+    background: #0009;
+    border: 0;
+    z-index: 50;
+}
+
+.app-comunidade .pagina,
+.app-comunidade .pagina-menor {
+    width: min(1100px, calc(100% - 64px));
+    margin: 30px auto 60px;
+}
+
+.app-comunidade .pagina-menor {
+    max-width: 850px;
+}
+
+.app-comunidade .titulo-pagina {
+    padding-bottom: 24px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #29292d;
+}
+
+.app-comunidade .titulo-pagina h1 {
+    font-size: 26px;
+    margin-top: 8px;
+}
+
+.app-comunidade .titulo-pagina small {
+    color: var(--gold-light);
+}
+
+.app-comunidade main > section.card,
+.app-comunidade #editarPerfil,
+.app-comunidade #sistemasCard {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #29292d;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 26px 0;
+    margin: 0;
+}
+
+.app-comunidade h2 {
+    font-size: 17px;
+}
+
+.app-comunidade .formulario {
+    max-width: 720px;
+}
+
+.app-comunidade .campo input,
+.app-comunidade .campo textarea,
+.app-comunidade #pesquisa,
+.app-comunidade #nomeSistema {
+    background: #1a1a1e;
+    border: 1px solid #35353b;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.app-comunidade .botao,
+.app-comunidade .botao-secundario,
+.app-comunidade .botao-perigo {
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 12px;
+}
+
+.app-comunidade .botao {
+    background: var(--gold);
+    color: #18140e;
+}
+
+.app-comunidade .botao:hover {
+    background: var(--gold-light);
+}
+
+.app-comunidade .formulario > button {
+    align-self: flex-start;
+}
+
+.app-comunidade .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+
+.app-comunidade .grid .card {
+    background: #18181b;
+    border: 1px solid #303035;
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 20px;
+}
+
+.app-comunidade .item-lista {
+    border-radius: 5px;
+    background: #18181b;
+    box-shadow: none;
+}
+
+.app-comunidade .perfil-grande {
+    margin-bottom: 20px;
+}
+
+.app-comunidade #acao {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.app-comunidade .mensagem:empty {
+    display: none;
+}
+
+.app-comunidade :focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+.app-comunidade .notification-stack {
+    position: fixed;
+    right: 18px;
+    bottom: 88px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 80;
+    max-width: calc(100% - 36px);
+}
+
+.app-comunidade .toast {
+    display: flex;
+    gap: 10px;
+    width: 310px;
+    max-width: 100%;
+    padding: 13px;
+    border: 1px solid #66502f;
+    border-radius: 6px;
+    background: #201c17;
+    box-shadow: 0 8px 24px #0005;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.app-comunidade .toast.show {
+    opacity: 1;
+}
+
+.app-comunidade .toast-icon {
+    color: var(--gold-light);
+}
+
+.app-comunidade .toast-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.app-comunidade .toast-copy strong {
+    font-size: 12px;
+}
+
+.app-comunidade .toast-copy span {
+    font-size: 11px;
+    color: #bdb7af;
+    overflow-wrap: anywhere;
+}
+
+.app-mensagens .pagina {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+}
+
+.app-mensagens .titulo-pagina {
+    display: none;
+}
+
+.app-mensagens .mensagens-layout {
+    border: 0;
+    border-radius: 0;
+    grid-template-columns: 230px minmax(0, 1fr);
+    height: calc(100dvh - 66px);
+    min-height: 430px;
+    background: #121214;
+}
+
+.app-mensagens .contatos {
+    background: #151518;
+    border-right: 1px solid #29292d;
+    padding: 18px 12px;
+}
+
+.app-mensagens .painel-contatos {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
+    background: #151518;
+    border-right: 1px solid #29292d;
+    padding: 15px 10px;
+}
+
+.app-mensagens .painel-contatos .contatos {
+    flex: 1;
+    min-height: 0;
+    border: 0;
+    padding: 12px 0;
+}
+
+.nova-conversa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #252126;
+    color: var(--gold-light);
+    border: 1px solid #50402c;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.busca-contatos {
+    font-size: 10px;
+    color: #aaa7ae;
+    margin: 20px 0 6px;
+}
+
+#buscarContato {
+    min-width: 0;
+    width: 100%;
+    background: #0d0d10;
+    color: #eee;
+    border: 1px solid #353038;
+    padding: 9px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.filtros-contatos {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    border-bottom: 1px solid #2f2b30;
+}
+
+.filtros-contatos button {
+    font-size: 9px;
+    padding: 8px 0;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: #a6a2ac;
+}
+
+.filtros-contatos button[aria-pressed="true"] {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold);
+}
+
+.contatos-comunidades {
+    font-size: 11px;
+    padding: 10px;
+    color: #b0a79b;
+    border-top: 1px solid #2f2b30;
+}
+
+.contatos-vazio {
+    font-size: 11px;
+    color: #99959e;
+    padding: 15px 8px;
+}
+
+.chat-vazio {
+    margin: auto;
+    padding: 30px 10px;
+    text-align: center;
+    max-width: 430px;
+}
+
+.chat-vazio > svg {
+    width: 48px;
+    height: 48px;
+    color: var(--gold);
+    margin-bottom: 18px;
+}
+
+.chat-vazio h2 {
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+.chat-vazio p {
+    color: #96929d;
+    margin: 10px 0 20px;
+    font-size: 12px;
+}
+
+.comunidade-participantes {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.comunidade-participantes a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px;
+    font-size: 12px;
+    background: #222024;
+    border-radius: 4px;
+}
+
+.comunidade-participantes img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ver-participantes {
+    display: block;
+    margin-top: 10px;
+}
+
+.app-mensagens .contato {
+    border-radius: 5px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    min-width: 0;
+}
+
+.app-mensagens .contato span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-mensagens .contato.ativo {
+    background: #2a231a;
+    border: 1px solid #645032;
+    box-shadow: none;
+}
+
+.app-mensagens .contato img {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    border: 0;
+}
+
+.app-mensagens .chat {
+    padding: 0 24px 18px;
+    min-height: 0;
+}
+
+.app-mensagens .chat h3 {
+    margin: 0;
+    padding: 18px 0;
+    border: 0;
+    border-bottom: 1px solid #29292d;
+    background: transparent;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.app-mensagens .chat-cabecalho {
+    padding: 18px 0;
+    border-bottom: 1px solid #29292d;
+}
+
+.app-mensagens .chat-cabecalho h3 {
+    padding: 0;
+    border: 0;
+}
+
+.app-mensagens .chat-cabecalho p {
+    margin-top: 5px;
+    color: #96929d;
+    font-size: 10px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.app-mensagens .chat-mensagens {
+    min-height: 0;
+    background: none;
+    padding: 22px 0;
+    border-radius: 0;
+}
+
+.app-mensagens .balao {
+    max-width: 85%;
+    border-radius: 5px;
+    box-shadow: none;
+    background: #1d1d22;
+}
+
+.app-mensagens .balao.meu {
+    background: #2b2318;
+    border-color: #66502f;
+}
+
+.app-mensagens .enviar-mensagem {
+    flex-direction: row;
+}
+
+.app-mensagens .enviar-mensagem input {
+    min-width: 0;
+    border-radius: 5px;
+    background: #202024;
+}
+
+.app-mensagens .enviar-mensagem .botao {
+    min-width: 75px;
+    border-radius: 5px;
+    box-shadow: none;
+    background: var(--gold);
+}
+
+.app-mensagens #mensagemPagina:not(:empty) {
+    position: fixed;
+    bottom: 85px;
+    right: 24px;
+    max-width: min(420px, calc(100% - 40px));
+    background: #30271b;
+    border: 1px solid #66502f;
+    padding: 12px;
+    z-index: 45;
+    border-radius: 5px;
+}
+
+@media (max-width: 1100px) {
+    .app-mensagens .mensagens-layout {
+        grid-template-columns: 170px minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .app-comunidade {
+        padding-left: 0;
+    }
+
+    .app-lateral {
+        top: 66px;
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+
+    .menu-aberto .app-lateral {
+        transform: none;
+        visibility: visible;
+    }
+
+    .app-lateral .app-marca {
+        display: none;
+    }
+
+    .app-comunidade .topo {
+        padding: 0 16px;
+        flex-wrap: nowrap;
+    }
+
+    .app-menu-botao {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 0;
+        border-radius: 4px;
+        background: #252529;
+        color: var(--gold-light);
+    }
+
+    .app-comunidade .pagina,
+    .app-comunidade .pagina-menor {
+        width: calc(100% - 32px);
+        margin-top: 22px;
+    }
+
+    .app-mensagens .pagina {
+        width: 100%;
+        margin: 0;
+    }
+
+    .app-mensagens .mensagens-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 222px minmax(0, 1fr);
+        min-height: 650px;
+    }
+
+    .app-mensagens .painel-contatos {
+        padding: 10px 14px;
+        border-bottom: 1px solid #29292d;
+    }
+
+    .app-mensagens .painel-contatos .busca-contatos {
+        margin-top: 8px;
+    }
+
+    .app-mensagens .painel-contatos .contatos {
+        padding: 4px 0;
+        min-height: 50px;
+    }
+
+    .app-mensagens .contatos-comunidades {
+        display: none;
+    }
+
+    .filtros-contatos {
+        margin-top: 4px;
+    }
+
+    .app-mensagens .contatos {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 8px;
+        padding: 10px;
+        border-bottom: 1px solid #29292d;
+    }
+
+    .app-mensagens .contato {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 190px;
+    }
+
+    .app-mensagens .chat {
+        padding: 0 16px 16px;
+    }
+}

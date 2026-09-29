@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Campanhas - FrontD</title>
+
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../comunidade.css">
+
+    <link rel="stylesheet" href="../navegacao.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <a class="logo" href="../Blog/index.html">
+            Front<span>D</span>
+        </a>
+
+        <nav class="menu">
+
+            <a href="../Blog/index.html">Início</a>
+            <a href="../descobrir/index.html">Descobrir</a>
+
+            <a class="ativo" href="index.html">
+                Campanhas
+            </a>
+
+            <a href="../mensagens/index.html">Mensagens</a>
+            <a href="../comunidades/index.html">Comunidades</a>
+            <a href="../perfil/index.html">Meu perfil</a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="pagina">
+
+        <div class="titulo-pagina">
+
+            <small>AVENTURAS</small>
+
+            <h1>Campanhas</h1>
+
+            <p>
+                Crie uma campanha ou encontre uma mesa.
+            </p>
+
+        </div>
+
+
+        <section class="card">
+
+            <h2>Criar campanha</h2>
+
+            <form
+                id="formCampanha"
+                class="formulario"
+            >
+
+                <div class="campo">
+
+                    <label>Nome</label>
+
+                    <input
+                        id="nome"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>Sistema</label>
+
+                    <input
+                        id="sistema"
+                        placeholder="Ex: D&D 5e"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>Descrição</label>
+
+                    <textarea
+                        id="descricao"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>Quantidade máxima de jogadores</label>
+
+                    <input
+                        id="maxJogadores"
+                        type="number"
+                        min="2"
+                        max="20"
+                        value="5"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+                    <label for="capa">Capa da campanha</label>
+                    <input id="capa" type="file" accept="image/jpeg,image/png,image/webp">
+                    <img id="previaCapa" class="previa-capa" alt="Prévia da capa" hidden>
+                </div>
+                <button class="botao" type="submit">
+                    Criar campanha
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>Campanhas disponíveis</h2>
+
+            <div
+                id="campanhas"
+                class="grid"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../script.js"></script>
+    <script src="../notificacoes.js"></script>
+    <script src="../navegacao.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

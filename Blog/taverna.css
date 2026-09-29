@@ -1,0 +1,429 @@
+/* Tema da taverna; os dados e controles continuam no feed.js. */
+body {
+    background: #090909;
+}
+.modal-frontd textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    background: #111113;
+    color: #eee;
+    border: 1px solid #54442d;
+    border-radius: 5px;
+    resize: vertical;
+    font: inherit;
+}
+.guild-rail {
+    background: #050505;
+    border-color: #27221a;
+}
+.guild-rail .guild-home,
+.guild-rail .rail-add {
+    background: #20190e;
+    color: #ffc75e;
+}
+.topbar {
+    background: #090909f5;
+    border-color: #302a20;
+}
+.brand {
+    position: relative;
+    background: #080808;
+    padding-left: 70px;
+}
+.brand-emblem {
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    color: #171009;
+    background: #ffcc70;
+}
+.brand-emblem svg {
+    width: 24px;
+    height: 24px;
+}
+.left-sidebar {
+    background: #090909;
+    isolation: isolate;
+}
+.left-sidebar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(#090909 0%, #090909 39%, #090909d9 51%, #09090900 75%),
+        url("midia/taverna-rpg.png") left bottom / auto 68% no-repeat;
+}
+.sidebar-inbox {
+    background: #090909cf;
+}
+.sidebar-heading {
+    color: #aaa39b;
+}
+.main-menu a.active {
+    background: #c8953521;
+    color: #fff3d8;
+    box-shadow: inset 2px 0 #ffc65b;
+}
+.main-menu a:hover {
+    background: #292016;
+}
+.create-campaign {
+    color: #ffd17b;
+    border-color: #8d672e;
+    background: #302210c9;
+    justify-content: center;
+    font-weight: 600;
+}
+.create-campaign:hover {
+    background: #4a3215;
+}
+.profile-card {
+    background: #090909ee;
+    border-color: #403320;
+}
+.layout {
+    background:
+        linear-gradient(#090909e0, #090909f5),
+        url("midia/taverna-rpg.png") center top / cover fixed;
+}
+.feed-column {
+    padding: 0 32px 60px;
+    max-width: 1150px;
+}
+.feed-header {
+    position: relative;
+    isolation: isolate;
+    min-height: 174px;
+    padding: 32px 0 24px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #312818;
+}
+.feed-header::before {
+    content: "";
+    position: absolute;
+    inset: 0 -32px;
+    z-index: -1;
+    background:
+        linear-gradient(90deg, #080808d9, #08080845 65%, #0808089c),
+        linear-gradient(0deg, #090909, transparent 60%),
+        url("midia/taverna-rpg.png") center 45% / cover;
+}
+.feed-header h1 {
+    font-size: 28px;
+}
+.feed-header p {
+    color: #dfd9d0;
+}
+.section-label {
+    color: #ffcd67;
+    font-weight: 700;
+}
+.header-discover {
+    color: #ffcd67;
+    background: #090909d9;
+    border-color: #a97a31;
+}
+.feed-toolbar {
+    margin-bottom: 17px;
+    border-color: #302d27;
+}
+.search-box {
+    background: #080808;
+    border-color: #38332b;
+}
+.create-post {
+    background: #101011ed;
+    border: 1px solid #302d27;
+    box-shadow: 0 8px 26px #0004;
+    border-radius: 8px;
+}
+.create-content textarea {
+    min-height: 62px;
+}
+.create-footer {
+    border-color: #292621;
+}
+.publish-button {
+    background: #ffc65b;
+    border: 1px solid #ffe0a1;
+    color: #140f08;
+    box-shadow: inset 0 1px #ffedbd;
+}
+.publish-button:hover {
+    background: #ffdb92;
+}
+.mural-label {
+    margin: 23px 0 12px;
+}
+#feed {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.post {
+    border: 1px solid #2e2b25;
+    border-radius: 8px;
+    background: #101011ec;
+    padding: 18px 20px;
+}
+.post-header {
+    gap: 12px;
+}
+.post-user strong {
+    color: #f5f0e8;
+}
+.post-content {
+    margin: 10px 0 13px 48px;
+    color: #e2ddd5;
+    font-size: 13px;
+    line-height: 1.7;
+}
+.post-image {
+    width: 100%;
+    max-height: 540px;
+    object-fit: contain;
+    background: #080808;
+    border: 1px solid #31291e;
+    border-radius: 7px;
+}
+.post-actions {
+    margin-left: 48px;
+    gap: 15px;
+}
+.post-actions button {
+    border-color: transparent;
+    background: none;
+    color: #a9a6a2;
+}
+.post-actions button:hover {
+    background: #30261a;
+}
+.post-actions .liked {
+    color: #f09a9e;
+    background: #3d2025;
+    border-color: #69353b;
+}
+.right-sidebar {
+    padding: 20px 18px;
+    border-color: #28231b;
+    background: #080808e8;
+}
+.right-heading {
+    padding: 5px 4px 12px;
+}
+.right-heading > span {
+    color: #cba44d;
+}
+.side-card {
+    padding: 19px 0;
+    border-color: #342b20;
+}
+.side-title h3 {
+    color: #f0ede7;
+}
+.side-title a {
+    color: #ffcb65;
+}
+.campaign-item {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    column-gap: 10px;
+    padding: 10px;
+    margin: 9px 0;
+    border: 1px solid #393021 !important;
+    border-radius: 7px;
+    background: #19140e;
+    text-align: left;
+}
+.campaign-item:hover {
+    border-color: #93672e !important;
+    background: #251b10;
+}
+.campaign-item .campaign-cover {
+    grid-row: 1 / 4;
+    width: 62px;
+    height: 70px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.campaign-item strong,
+.campaign-item span,
+.campaign-item small {
+    grid-column: 2;
+}
+.campaign-item strong {
+    font-size: 12px;
+}
+.campaign-item.sem-capa {
+    grid-template-columns: minmax(0, 1fr);
+}
+.campaign-item.sem-capa strong,
+.campaign-item.sem-capa span,
+.campaign-item.sem-capa small {
+    grid-column: 1;
+}
+.campaign-item small {
+    color: #a2cca5;
+}
+#popularSystems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 8px;
+}
+.system-item {
+    min-width: 0;
+    flex-direction: column;
+    text-align: center;
+    gap: 7px;
+    padding: 8px 0;
+}
+.system-item::before {
+    display: none;
+}
+.system-symbol {
+    display: grid;
+    place-items: center;
+    width: 49px;
+    height: 49px;
+    border: 1px solid #553328;
+    border-radius: 7px;
+    background: #1d1110;
+    color: #de846c;
+}
+.system-item:nth-child(2n) .system-symbol {
+    color: #e3ba66;
+    background: #1f190d;
+    border-color: #544523;
+}
+.system-item:nth-child(3n) .system-symbol {
+    color: #86b098;
+    background: #111b16;
+    border-color: #304b39;
+}
+.system-item strong {
+    font-size: 10px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+.community-panel {
+    padding: 18px 0;
+    border-bottom: 1px solid #342b20;
+}
+.community-total {
+    padding: 0;
+    color: #e2b766;
+    gap: 8px;
+}
+.community-total > a {
+    margin-left: auto;
+}
+.community-total small {
+    color: #d2ccc2;
+}
+.community-players {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 20px;
+}
+.community-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+.community-player img {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background: #242020;
+}
+.community-player span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.community-player:hover {
+    color: #ffcf75;
+}
+.explore-community {
+    min-height: 125px;
+    padding: 18px 12px;
+    border: 1px solid #4c3824;
+    border-radius: 7px;
+    background:
+        linear-gradient(#080808c4, #080808aa),
+        url("midia/taverna-rpg.png") 80% 45% / cover;
+}
+.explore-community span {
+    font-size: 13px;
+    color: #ffdfa5;
+}
+.explore-community small {
+    color: #dad0bf;
+}
+@media (min-width: 1700px) {
+    .feed-column {
+        padding: 0 44px 60px;
+    }
+    .feed-header::before {
+        inset-inline: -44px;
+    }
+    .right-sidebar {
+        padding: 22px;
+    }
+}
+@media (max-width: 1200px) {
+    .feed-column {
+        padding: 0 28px 50px;
+    }
+    .feed-header::before {
+        inset-inline: -28px;
+    }
+}
+@media (max-width: 760px) {
+    .feed-column {
+        padding: 0 15px 90px;
+    }
+    .feed-header {
+        min-height: 158px;
+        padding: 27px 0;
+    }
+    .feed-header::before {
+        inset-inline: -15px;
+        background-position:
+            center,
+            center,
+            62% 42%;
+    }
+    .feed-header h1 {
+        font-size: 26px;
+    }
+    .feed-toolbar {
+        padding-top: 12px;
+    }
+    .create-post {
+        padding: 14px 12px;
+    }
+    .post {
+        padding: 16px 13px;
+    }
+    .post-content,
+    .post-actions {
+        margin-left: 0;
+    }
+    .post-actions {
+        gap: 5px;
+    }
+    .empty-feed {
+        padding: 35px 12px;
+    }
+}
