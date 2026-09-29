@@ -1,31 +1,40 @@
-/* /* =========================================
-   ESTRUTURA GERAL (CARD DO PERFIL)
-========================================= */
+
 body {
-    background-color: #f4f7f6; /* Fundo cinza bem claro para destacar o card */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--fundo, #121212);
 }
 
+/* =========================================
+   CARD DO PERFIL
+========================================= */
 .perfil-container {
-    background-color: #ffffff;
     width: 100%;
-    max-width: 500px;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 460px;
+    padding: 40px;
     margin: 20px;
-    box-sizing: border-box;
+
+    background-color: rgba(18, 18, 18, 0.92);
+
+    /* Borda sutil com destaque dourado à esquerda */
+    border: 1px solid #333333;
+    border-left: 3px solid var(--dourado, #f39c12);
+    border-radius: 12px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+
+    animation: aparecer 0.8s ease;
 }
 
+/* Título */
 .perfil-container h2 {
     text-align: center;
-    color: #333;
-    margin-top: 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--branco, #ffffff);
     margin-bottom: 25px;
 }
 
@@ -37,94 +46,141 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
+/* Tamanho e destaque para as imagens inseridas dinamicamente via JS */
+.avatar-wrapper img,
 .avatar-option {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
     cursor: pointer;
-    border: 3px solid transparent; /* Borda invisível por padrão */
-    border-radius: 10px; /* Borda arredondada */
-    background-color: #f9f9f9; /* Fundo para avatares com transparência */
-    transition: transform 0.2s ease-in-out, border-color 0.2s ease;
+    border: 2px solid transparent;
+    background-color: rgba(30, 30, 30, 0.8);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efeito ao passar o mouse */
+.avatar-wrapper img:hover,
 .avatar-option:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
+    border-color: #666666;
 }
 
-/* Classe que será adicionada via JS quando o usuário clicar */
+/* Classe atribuída ao avatar selecionado */
+.avatar-wrapper img.selecionado,
 .avatar-option.selecionado {
-    border-color: #007BFF; /* Cor da borda selecionada (Azul) */
-    background-color: #e6f2ff;
+    border-color: var(--dourado, #f39c12);
+    box-shadow: 0 0 12px rgba(243, 156, 18, 0.4);
+    transform: scale(1.05);
 }
 
 /* =========================================
-   FORMULÁRIO
+   FORMULÁRIO E CAMPOS
 ========================================= */
 #form-perfil {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 #form-perfil label {
-    font-weight: bold;
-    color: #555;
+    color: #dddddd;
     font-size: 14px;
-    margin-bottom: 8px;
-    margin-top: 15px;
-}
-
-/* O primeiro label não precisa de margem no topo */
-#form-perfil label:first-of-type {
-    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: -5px;
 }
 
 #form-perfil input[type="text"],
 #form-perfil textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
-    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    padding: 14px 15px;
+    font-size: 14px;
     font-family: inherit;
-    transition: border-color 0.3s, box-shadow 0.3s;
+
+    background-color: rgba(26, 26, 26, 0.95);
+    color: var(--branco, #ffffff);
+
+    border: 1px solid #383838;
+    border-radius: 7px;
+    outline: none;
+
+    transition: border-color 0.25s, box-shadow 0.25s;
 }
 
-/* Permitir redimensionar a textarea apenas para baixo */
 #form-perfil textarea {
     resize: vertical;
+    min-height: 90px;
 }
 
-/* Efeito ao focar (clicar) no campo */
-#form-perfil input[type="text"]:focus,
+#form-perfil input::placeholder,
+#form-perfil textarea::placeholder {
+    color: #777777;
+}
+
+#form-perfil input:hover,
+#form-perfil textarea:hover {
+    border-color: #555555;
+}
+
+#form-perfil input:focus,
 #form-perfil textarea:focus {
-    outline: none;
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    border-color: var(--dourado, #f39c12);
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.25);
 }
 
 /* =========================================
-   BOTÃO DE SALVAR
+   BOTÃO DE SUBMETER
 ========================================= */
 #form-perfil button {
-    margin-top: 25px;
-    background-color: #007BFF;
-    color: #ffffff;
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+
+    background-color: var(--dourado, #f39c12);
+    color: var(--preto, #000000);
+
     border: none;
-    padding: 14px;
+    border-radius: 8px;
+
     font-size: 16px;
     font-weight: bold;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+
+    transition: background-color 0.25s, transform 0.15s, box-shadow 0.25s;
 }
 
 #form-perfil button:hover {
-    background-color: #0056b3; /* Azul mais escuro no hover */
+    background-color: var(--dourado-claro, #ffb733);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(243, 156, 18, 0.35);
 }
 
 #form-perfil button:active {
-    transform: scale(0.98); /* Efeito de afundar ao clicar */
+    transform: scale(0.98);
+}
+
+/* =========================================
+   ANIMAÇÃO E RESPONSIVIDADE
+========================================= */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 500px) {
+    .perfil-container {
+        padding: 30px 20px;
+    }
+
+    .perfil-container h2 {
+        font-size: 26px;
+    }
 }
